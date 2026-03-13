@@ -1,15 +1,16 @@
-// --------------------------------------------------
-// Navbar Component
-// --------------------------------------------------
+// =====================================
+// src/Components/Navbar.tsx
+// =====================================
+
 import { Link } from "react-router-dom";
-import TimeDate from "./Reusables/TimeDate";
+import TimeDate from "./TimeDate";
 import { useState } from "react";
-import MobileSidebar from "./Reusables/HamburgerMenu";
+import MobileSidebar from "./HamburgerMenu";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
 import { motion } from "motion/react";
-// --------------------------------------------------
 
+// ===================================== ANIMATION CONFIG
 const navbarMotion = {
 	initial: { y: -150, opacity: 1 },
 	animate: { y: 0, opacity: 1 },
@@ -20,9 +21,9 @@ const navbarTransition = {
 	duration: 1.5,
 	easing: "ease-out",
 };
-// --------------------------------------------------
 
-const Navbar = () => {
+// ===================================== NAVBAR COMPONENT
+function Navbar() {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -31,34 +32,42 @@ const Navbar = () => {
 			animate={navbarMotion.animate}
 			exit={navbarMotion.exit}
 			transition={navbarTransition}
-			className="navbar__parent bg-[#f6f0ec] w-screen text-[1.1rem] flex flex-col p-[1rem] md:text-[1.2rem] lg:text-[1.1rem]"
+			className="navbar__parent bg-[#f6f0ec] w-full text-[1.1rem] flex flex-col p-[1rem] md:text-[1.2rem] lg:text-[1.1rem]"
 		>
+			{/* ================ Navbar Logo ================ */}
 			<div className="navbarHeader__logo text-[1.7rem] font-bold whitespace-nowrap mb-[1rem]">
 				<Link
 					to="/"
-					className="navbarHeader__logo--link border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300"
+					className="navbarHeader__logo--link border-t-2 border-b-2 border-[#450693] hover:bg-[#dbcfff] transition-transform duration-300"
 				>
 					<span className="text-[#450693]">Ebenezer</span>
 					<span className="text-orange-500">Tiewei</span>
 				</Link>
 			</div>
 
+			{/* ============================================ */}
 			<div className="navbar__main text-[#450693] flex justify-between items-end">
-				<TimeDate className="timeDate px-[0.5rem]" />
+				{/* ================ Time and Date ================ */}
+				<TimeDate className="timeDate" />
 
+				{/* ================ Navigation Links ================ */}
 				<div className="navbar__menu flex items-center gap-4">
 					<ul className="navbar__links hidden md:flex gap-[1.5rem] font-semibold capitalize">
 						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-							<Link to="/contact">contact</Link>
+							<Link to="/about">about</Link>
+						</li>
+						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
+							<Link to="/projects">projects</Link>
 						</li>
 						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
 							<Link to="/services">services</Link>
 						</li>
 						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-							<Link to="/about">about</Link>
+							<Link to="/contact">contact</Link>
 						</li>
 					</ul>
 
+					{/* ================ Hamburger Menu / Small screens ================ */}
 					<button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
 						{isOpen ? (
 							<FaTimes size={28} className="text-[#450693]" />
@@ -72,6 +81,6 @@ const Navbar = () => {
 			</div>
 		</motion.nav>
 	);
-};
+}
 
 export default Navbar;

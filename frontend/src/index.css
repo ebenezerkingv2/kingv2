@@ -1,4 +1,4 @@
-/* ------------------------------------------------------------------ */
+/* ================================= */
 @import "tailwindcss";
 
 @tailwind base;
@@ -18,10 +18,9 @@
 	}
 	body {
 		@apply font-sans text-[#0a2540] bg-black;
-		width: 100dvw;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		width: 100vw;
+		min-height: 100vh;
+		display: block;
 	}
 }
 

@@ -1,22 +1,31 @@
-// --------------------------------------------------
-// Layout Component
-// --------------------------------------------------
-import Navbar from "./Navbar";
-// --------------------------------------------------
-interface LayoutProps {
-	children: React.ReactNode;
-}
+// =====================================
+// src/Components/Layout.tsx
+// =====================================
 
-const Layout = ({ children }: LayoutProps) => {
+import { Outlet } from "react-router-dom";
+import Navbar from "./Reusables/Navbar";
+import Footer from "./Reusables/Footer";
+
+// ===================================== LAYOUT COMPONENT
+function Layout() {
 	return (
-		<div>
+		<div className="flex flex-col min-h-screen w-full">
+			{/* ============== HEADER ============== */}
 			<header>
 				<Navbar />
 			</header>
-			<main className="flex-grow">{children}</main>
-			<footer></footer>
+
+			{/* ============== MAIN ============== */}
+			<main className="flex-grow flex flex-col w-full">
+				<Outlet /> 
+			</main>
+
+			{/* ============== FOOTER ============== */}
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	);
-};
+}
 
 export default Layout;

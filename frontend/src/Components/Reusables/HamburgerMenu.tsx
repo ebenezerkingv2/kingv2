@@ -1,13 +1,15 @@
-// --------------------------------------------------
-// Navbar Component for mobile view
-// --------------------------------------------------
-import { Link } from "react-router-dom";
-// --------------------------------------------------
+// =====================================
+// src/Components/Reusables/HamburgerMenu.tsx
+// =====================================
 
+import { Link } from "react-router-dom";
+
+// =====================================
 interface HamburgerMenuProps {
 	isOpen: boolean;
 }
 
+// ===================================== HAMBRGER MENU COMPONENT
 export default function HamburgerMenu({ isOpen }: HamburgerMenuProps) {
 	return (
 		<div
