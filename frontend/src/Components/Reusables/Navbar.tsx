@@ -32,51 +32,64 @@ function Navbar() {
 			animate={navbarMotion.animate}
 			exit={navbarMotion.exit}
 			transition={navbarTransition}
-			className="navbar__parent bg-[#f6f0ec] w-full text-[1.1rem] flex flex-col p-[1rem] md:text-[1.2rem] lg:text-[1.1rem]"
+			className="navbar__parent relative bg-black w-full min-h-[130px] text-[1.1rem] flex flex-col px-[1rem] py-[1rem] md:text-[1.1rem]"
 		>
-			{/* ================ Navbar Logo ================ */}
-			<div className="navbarHeader__logo text-[1.7rem] font-bold whitespace-nowrap mb-[1rem]">
-				<Link
-					to="/"
-					className="navbarHeader__logo--link border-t-2 border-b-2 border-[#450693] hover:bg-[#dbcfff] transition-transform duration-300"
-				>
-					<span className="text-[#450693]">Ebenezer</span>
-					<span className="text-orange-500">Tiewei</span>
-				</Link>
-			</div>
+			{/* ================ NAVBAR CONTENTS ================ */}
+			<div className="relative z-20">
+				{/* ================ Navbar Logo ================ */}
+				<div className="navbarHeader__logo text-[1.7rem] font-bold whitespace-nowrap mb-[1rem]">
+					<Link
+						to="/"
+						className="navbarHeader__logo--link border-t-2 border-b-2 border-orange-500 hover:bg-[#dbcfff] hover:text-[#450693] transition-transform duration-300"
+					>
+						<span className=" text-orange-500 md:text-[#450693] transition-transform duration-300">
+							Ebenezer
+						</span>
+						<span className="text-[#450693] md:text-orange-500">Tiewei</span>
+					</Link>
+				</div>
 
-			{/* ============================================ */}
-			<div className="navbar__main text-[#450693] flex justify-between items-end">
-				{/* ================ Time and Date ================ */}
-				<TimeDate className="timeDate" />
+				{/* ============================================ */}
+				<div className="navbar__main text-orange-500 md:text-[#dbcfff] flex justify-between items-end">
+					{/* ================ Time and Date ================ */}
+					<div className="">
+						<TimeDate className="timeDate text-[1rem]" />
+					</div>
 
-				{/* ================ Navigation Links ================ */}
-				<div className="navbar__menu flex items-center gap-4">
-					<ul className="navbar__links hidden md:flex gap-[1.5rem] font-semibold capitalize">
-						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-							<Link to="/about">about</Link>
-						</li>
-						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-							<Link to="/projects">projects</Link>
-						</li>
-						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-							<Link to="/services">services</Link>
-						</li>
-						<li className="navbar__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-							<Link to="/contact">contact</Link>
-						</li>
-					</ul>
+					{/* ================ Navigation Links ================ */}
+					<div className="navbar__menu flex items-center gap-4">
+						<ul className="navbar__links hidden md:flex gap-[1.5rem] font-semibold capitalize">
+							<li className="navbar__item border-t-2 border-b-2 border-orange-500 px-[0.5rem] hover:bg-[#dbcfff] hover:text-[#450693] transition-transform duration-300">
+								<Link to="/about">about</Link>
+							</li>
+							<li className="navbar__item border-t-2 border-b-2 border-orange-500 px-[0.5rem] hover:bg-[#dbcfff] hover:text-[#450693] transition-transform duration-300">
+								<Link to="/projects">projects</Link>
+							</li>
+							<li className="navbar__item border-t-2 border-b-2 border-orange-500 px-[0.5rem] hover:bg-[#dbcfff] hover:text-[#450693] transition-transform duration-300">
+								<Link to="/services">services</Link>
+							</li>
+							<li className="navbar__item border-t-2 border-b-2 border-orange-500 px-[0.5rem] hover:bg-[#dbcfff] hover:text-[#450693] transition-transform duration-300">
+								<Link to="/contact">contact</Link>
+							</li>
+						</ul>
 
-					{/* ================ Hamburger Menu / Small screens ================ */}
-					<button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-						{isOpen ? (
-							<FaTimes size={28} className="text-[#450693]" />
-						) : (
-							<GiHamburgerMenu size={26} />
-						)}
-					</button>
+						{/* ================ Hamburger Menu / Small screens ================ */}
+						<button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
+							{isOpen ? (
+								<FaTimes
+									size={28}
+									className="text-[#450693] bg-orange-500 rounded"
+								/>
+							) : (
+								<GiHamburgerMenu size={28} />
+							)}
+						</button>
 
-					<MobileSidebar isOpen={isOpen} />
+						<MobileSidebar
+							isOpen={isOpen}
+							toggleMenu={() => setIsOpen(false)}
+						/>
+					</div>
 				</div>
 			</div>
 		</motion.nav>

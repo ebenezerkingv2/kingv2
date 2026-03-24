@@ -1,0 +1,157 @@
+// =====================================
+// src/Components/ContactSection.tsx
+// ===================================== CONTACT SECTION COMPONENT
+
+import nightTrain from "../Assets/backgroundImage/nightTrain.webp";
+import { useState } from "react";
+import PageLayout from "./Reusables/PageLayout";
+
+// =====================================
+const ContactSection = () => {
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		message: "",
+	});
+
+	const [statusMessage, setStatusMessage] = useState("");
+	const [statusType, setStatusType] = useState("");
+
+	type InputEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+
+	const handleChange = (e: InputEvent) => {
+		const { name, value } = e.target;
+		setFormData((prev) => ({ ...prev, [name]: value }));
+	};
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		setStatusMessage("");
+		setStatusType("");
+
+		try {
+			const response = await fetch(
+				"https://portfolio-backend-rd7b.onrender.com/api/contact",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(formData),
+				},
+			);
+
+			if (response.ok) {
+				setStatusMessage("Message sent successfully!");
+				setStatusType("success");
+				setFormData({ name: "", email: "", message: "" });
+			} else {
+				const errorData = await response.json();
+				setStatusMessage(
+					errorData.message || "Failed to send message. Please try again.",
+				);
+				setStatusType("error");
+			}
+		} catch (error) {
+			console.error("Error:", error);
+			setStatusMessage("Something went wrong. Please try again.");
+			setStatusType("error");
+		}
+	};
+
+	return (
+		<section className="contactSection relative md:bg-black text-[#f6f0ec] w-full h-screen px-4 md:flex-grow md:h-auto flex flex-col overflow-hidden">
+			{/* ============================== HERO IMAGE */}
+			<img
+				src={nightTrain}
+				alt="Background"
+				className="contactSection__mobile--backgroundImage md:hidden absolute inset-0 w-full h-full object-cover object-[center_30%]"
+			/>
+
+			{/* ============================== PAGE LAYOUT */}
+			<PageLayout
+				header={
+					<div className="aboutSection__headerSubHeader text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] md:pt-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:mb-[1rem]">
+						<h2 className="sr-only">About Me</h2>
+						<h3 className="contactSection__subHeader">
+							...here is my <span className="text-orange-500">contact</span>
+						</h3>
+					</div>
+				}
+			>
+				{/* ========================= CONTACT FORM ======================== */}
+				<div className="flex flex-1 flex-col justify-center w-full md:py-[2rem]">
+					<div className="contactSection__form text-[#dbcfff] w-full max-w-lg bg-black/80 backdrop-blur-sm rounded-[1rem] px-4 py-3 mx-auto">
+						<form
+							className="w-full flex flex-col gap-4"
+							onSubmit={handleSubmit}
+						>
+							{/* =========================== NAME */}
+							<div className="nameParent">
+								<label className="block text-orange-500 mb-2">Name:</label>
+								<input
+									type="text"
+									name="name"
+									placeholder="Your Name"
+									className="w-full px-4 py-2 border border-orange-500 rounded-[0.5rem] text-[1.1rem] bg-transparent md:bg-black"
+									value={formData.name}
+									onChange={handleChange}
+									required
+								/>
+							</div>
+
+							{/* =========================== EMAIL */}
+							<div className="emailParent">
+								<label className="block text-orange-500 mb-2">Email:</label>
+								<input
+									type="email"
+									name="email"
+									placeholder="Your Email"
+									className="w-full px-4 py-2 border border-orange-500 rounded-[0.5rem] text-[1.1rem] bg-transparent md:bg-black"
+									value={formData.email}
+									onChange={handleChange}
+									required
+								/>
+							</div>
+
+							{/* =========================== MESSAGE */}
+							<div className="messageParent">
+								<label className="block text-orange-500 mb-2">Message:</label>
+								<textarea
+									name="message"
+									rows={5}
+									placeholder="Your Message"
+									className="w-full px-4 py-2 border border-orange-500 rounded-[0.5rem] text-[1.1rem] bg-transparent md:bg-black"
+									value={formData.message}
+									onChange={handleChange}
+									required
+								/>
+							</div>
+
+							{/* =========================== SEND MESSAGE BUTTON */}
+							<button
+								type="submit"
+								className="contactForm__submit bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 px-4 rounded-[0.5rem] transition-colors duration-300 cursor-pointer"
+							>
+								Send Message
+							</button>
+
+							{/* =========================== MESSAGE STATUS */}
+							{statusMessage && (
+								<p
+									className={`mt-4 text-center text-[1rem] font-semibold ${
+										statusType === "success" ? "text-green-500" : "text-red-400"
+									}`}
+								>
+									{statusMessage}
+								</p>
+							)}
+						</form>
+					</div>
+				</div>
+			</PageLayout>
+		</section>
+	);
+};
+
+export default ContactSection;

@@ -1,0 +1,110 @@
+// =====================================
+// src/Components/ServicesSection.tsx
+// ===================================== SERVICES SECTION COMPONENT
+
+import neonUmbrellaRainyNight from "../Assets/backgroundImage/neonUmbrellaRainyNight.webp";
+import PageLayout from "./Reusables/PageLayout";
+import CardSlider from "./Reusables/CardSlider";
+import { useState, useEffect } from "react";
+
+const services = [
+	{
+		title: "Front-End Development",
+		description:
+			"Build responsive, modern React apps with reusable components and smooth animations.",
+	},
+	{
+		title: "Back-End Development",
+		description:
+			"Create secure, scalable APIs and server logic using Node.js, Express, and MongoDB.",
+	},
+	{
+		title: "Full-Stack Solutions",
+		description:
+			"Deliver end-to-end applications: e-commerce platforms, real-time apps, and CMS solutions.",
+	},
+	{
+		title: "Code Review & Optimization",
+		description:
+			"Audit existing code for performance, fix inefficiencies, and improve maintainability.",
+	},
+	{
+		title: "Code Revamp & Modernization",
+		description:
+			"Refactor or rebuild frontend and backend code for better structure, scalability, and maintainability.",
+	},
+	{
+		title: "Deployment & Maintenance",
+		description:
+			"Deploy on AWS, Vercel, Netlify, or custom domains, optimize performance, and maintain your apps.",
+	},
+	{
+		title: "Consulting & Advanced Services",
+		description:
+			"Technical guidance, API integration, serverless functions, testing strategies, and architecture planning.",
+	},
+];
+
+const ServicesSection = () => {
+	const [visibleCount, setVisibleCount] = useState(3);
+
+	useEffect(() => {
+		const updateCount = () => {
+			if (window.innerWidth >= 1024) {
+				setVisibleCount(4);
+			} else if (window.innerWidth >= 768) {
+				setVisibleCount(4);
+			} else {
+				setVisibleCount(3);
+			}
+		};
+
+		updateCount();
+		window.addEventListener("resize", updateCount);
+
+		return () => window.removeEventListener("resize", updateCount);
+	}, []);
+
+	// =================================
+
+	return (
+		<section className="servicesSection relative w-full flex flex-col px-4 md:bg-black text-[#dbcfff] overflow-hidden min-h-[100vh] md:min-h-0 md:flex-1">
+			{/* ============================== HERO IMAGE */}
+			<img
+				src={neonUmbrellaRainyNight}
+				alt="Background"
+				className="md:hidden absolute inset-0 w-full h-full object-cover object-[center_30%]"
+			/>
+
+			{/* ============================== PAGE LAYOUT */}
+			<PageLayout
+				header={
+					<div className="servicesSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] md:pt-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:mb-[1rem]">
+						<h2 className="sr-only servicesSection__header">Services</h2>
+						<h3 className="servicesSection__subHeader">
+							...how can I be of{" "}
+							<span className="text-orange-500">service</span> to you
+						</h3>
+					</div>
+				}
+			>
+				{/* ============================== SERVICE CARDS SLIDER */}
+				<CardSlider
+					items={services}
+					visibleCount={visibleCount}
+					renderItem={(service) => (
+						<div className="serviceCard h-full flex flex-col justify-start text-center bg-black/80 backdrop-blur-sm px-4 py-2 rounded-[0.5rem] md:rounded-[1rem] border border-orange-500">
+							<h4 className="text-[1.25rem] font-bold text-orange-500 mb-2">
+								{service.title}
+							</h4>
+
+							<p className="text-[1.1rem]">{service.description}</p>
+						</div>
+					)}
+				/>
+			</PageLayout>
+		</section>
+	);
+};
+
+export default ServicesSection;

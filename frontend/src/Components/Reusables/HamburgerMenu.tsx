@@ -7,28 +7,50 @@ import { Link } from "react-router-dom";
 // =====================================
 interface HamburgerMenuProps {
 	isOpen: boolean;
+	toggleMenu: () => void;
 }
 
 // ===================================== HAMBRGER MENU COMPONENT
-export default function HamburgerMenu({ isOpen }: HamburgerMenuProps) {
+export default function HamburgerMenu({
+	isOpen,
+	toggleMenu,
+}: HamburgerMenuProps) {
+	// =================================
+
 	return (
 		<div
-			className={`hamburgerMenu fixed top-0 left-0 h-full w-[15rem] bg-[#f6f0ec] shadow-lg transform
+			className={`hamburgerMenu fixed top-[9rem] left-0 h-auto w-[15rem] text-[1.1rem] text-orange-500 font-bold  bg-black rounded-r-[1rem] shadow-lg transform rounded
 			${isOpen ? "translate-x-0" : "-translate-x-full"}
-			transition-transform duration-300`}
+			transition-transform duration-300 z-50`}
 		>
-			<ul className="hamburgerMenu__ul mt-[8.7rem] space-y-[2rem] px-[2rem]">
-				<li className="hamburgerMenu__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-					<Link to="/contact">contact</Link>
+			<ul className="hamburgerMenu__ul space-y-[1.5rem] p-[1rem] list-none">
+				<li>
+					<Link to="/about" onClick={toggleMenu}>
+						<span className="hamburgerMenu__item block text-orange-500 border-t-4 border-b-4 border-[#450693] py-[0.3rem] pl-[0.5rem] pr-[0.5rem] hover:bg-[#dbcfff] hover:border-orange-500 hover:text-orange-500 transition-transform duration-300 w-[100%]">
+							about
+						</span>
+					</Link>
 				</li>
-				<li className="hamburgerMenu__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-					<Link to="/contact">contact</Link>
+				<li>
+					<Link to="/projects" onClick={toggleMenu}>
+						<span className="hamburgerMenu__item block text-orange-500 border-t-4 border-b-4 border-[#450693] py-[0.3rem] pl-[0.5rem] pr-[0.5rem] hover:bg-[#dbcfff] hover:border-orange-500 hover:text-orange-500 transition-transform duration-300 w-[100%]">
+							projects
+						</span>
+					</Link>
 				</li>
-				<li className="hamburgerMenu__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-					<Link to="/services">services</Link>
+				<li>
+					<Link to="/services" onClick={toggleMenu}>
+						<span className="hamburgerMenu__item block text-orange-500 border-t-4 border-b-4 border-[#450693] py-[0.3rem] pl-[0.5rem] pr-[0.5rem] hover:bg-[#dbcfff] hover:border-orange-500 hover:text-orange-500 transition-transform duration-300 w-[100%]">
+							services
+						</span>
+					</Link>
 				</li>
-				<li className="hamburgerMenu__item border-t-2 border-b-2 border-[#450693] px-[0.5rem] hover:bg-[#dbcfff] transition-transform duration-300">
-					<Link to="/about">about</Link>
+				<li>
+					<Link to="/contact" onClick={toggleMenu}>
+						<span className="hamburgerMenu__item block text-orange-500 border-t-4 border-b-4 border-[#450693] py-[0.3rem] pl-[0.5rem] pr-[0.5rem] hover:bg-[#dbcfff] hover:border-orange-500 hover:text-orange-500 transition-transform duration-300 w-[100%]">
+							contact
+						</span>
+					</Link>
 				</li>
 			</ul>
 		</div>
