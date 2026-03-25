@@ -30,9 +30,9 @@ const CardSlider = <T,>({
 	const visibleItems = items.slice(startIndex, startIndex + visibleCount);
 
 	return (
-		<div className="flex flex-col items-center gap-4 z-20 w-full">
+		<div className="flex flex-col items-center gap-4 z-20 w-full md:my-[4rem]">
 			{/* ================= SLIDER "TV SCREEN" */}
-			<div className="relative w-full md:w-[70%] lg:w-[60%] p-4 overflow-hidden h-[55vh] md:h-[42vh] lg:h-[42vh] flex items-center justify-center">
+			<div className="relative w-full md:w-[100%] lg:w-[60%] p-4 overflow-hidden h-[55vh] md:h-[42vh] lg:h-[60vh] flex items-center justify-center">
 				{/* ==================== GRID CARDS */}
 				<AnimatePresence mode="wait">
 					<motion.div

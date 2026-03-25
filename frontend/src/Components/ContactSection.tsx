@@ -80,7 +80,7 @@ const ContactSection = () => {
 				}
 			>
 				{/* ========================= CONTACT FORM ======================== */}
-				<div className="flex flex-1 flex-col justify-center w-full md:py-[2rem]">
+				<div className="flex flex-1 flex-col justify-center w-full md:py-[4rem]">
 					<div className="contactSection__form text-[#dbcfff] w-full max-w-lg bg-black/80 backdrop-blur-sm rounded-[1rem] px-4 py-3 mx-auto">
 						<form
 							className="w-full flex flex-col gap-4"

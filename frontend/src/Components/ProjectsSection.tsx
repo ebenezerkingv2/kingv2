@@ -6,23 +6,33 @@ import darkNight from "../Assets/backgroundImage/darkNight.webp";
 import PageLayout from "./Reusables/PageLayout";
 import ProjectBoard from "./Reusables/ProjectBoard";
 import { useState, useEffect } from "react";
+import taxlator_mobile from "../Assets/Projects/taxlator/taxlator_mobile.webp";
+import taxlator_tablet from "../Assets/Projects/taxlator/taxlator_tablet.webp";
+import taxlator_desktop from "../Assets/Projects/taxlator/taxlator_desktop.webp";
 
 const projects = [
 	{
+		images: {
+			mobile: taxlator_mobile,
+			tablet: taxlator_tablet,
+			desktop: taxlator_desktop,
+		},
+		title: "Taxlator",
+		description: "A full-stack tax calculation app with real-time updates.",
+		tech: ["React", "Tailwind", "TypeScript", "Node.js", "MongoDB"],
+		live: "https://your-live-link.com",
+		github: "https://github.com/ebenezertiewei/taxlator_v2",
+	},
+	{
+		images: {
+			mobile: taxlator_mobile,
+			tablet: taxlator_tablet,
+			desktop: taxlator_desktop,
+		},
 		title: "E-commerce Platform",
 		description:
 			"A full-stack e-commerce app with authentication, cart, and payment integration.",
-		image: "/images/ecommerce.png",
 		tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-		live: "https://your-live-link.com",
-		github: "https://github.com/your-repo",
-	},
-	{
-		title: "Real-Time Chat App",
-		description:
-			"A real-time messaging app with WebSocket integration and user presence.",
-		image: "/images/chat.png",
-		tech: ["React", "Socket.io", "Express"],
 		live: "https://your-live-link.com",
 		github: "https://github.com/your-repo",
 	},
