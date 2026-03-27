@@ -13,7 +13,9 @@ type PageLayoutProps = {
 // =====================================
 const PageLayout = ({ header, children, className = "" }: PageLayoutProps) => {
 	return (
-		<section className={`flex-1 flex flex-col ${className}`}>
+		<section
+			className={`h-screen flex-1 flex flex-col md:mx-auto md:md:w-[90%] lg:w-[60%] ${className}`}
+		>
 			{/* ================= HEADER (TOP) */}
 			<div className="w-full">{header}</div>
 

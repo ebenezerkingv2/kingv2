@@ -18,7 +18,8 @@ const projects = [
 			desktop: taxlator_desktop,
 		},
 		title: "Taxlator",
-		description: "A full-stack tax calculation app with real-time updates.",
+		description:
+			"A full-stack tax calculation app with real-time updates. so you can calculate your taxes in a flash.",
 		tech: ["React", "Tailwind", "TypeScript", "Node.js", "MongoDB"],
 		live: "https://your-live-link.com",
 		github: "https://github.com/ebenezertiewei/taxlator_v2",
@@ -60,18 +61,18 @@ const ProjectsSection = () => {
 	// =====================================
 
 	return (
-		<section className="projectSection relative w-full flex flex-col px-4 md:bg-black text-[#dbcfff] overflow-hidden min-h-[100vh] md:min-h-0 md:flex-1">
+		<section className="projectSection relative h-screen w-full flex flex-col px-4 md:px-0 md:bg-black text-[#dbcfff] overflow-hidden">
 			{/* ============================== HERO IMAGE */}
 			<img
 				src={darkNight}
 				alt="Background"
-				className="aboutSection__mobile--backgroundImage md:hidden absolute inset-0 w-full h-full object-cover object-[center_30%]"
+				className="projectSection__mobile--backgroundImage md:hidden absolute inset-0 w-full h-full object-cover object-[center_30%]"
 			/>
 
 			{/* ============================== PAGE LAYOUT */}
 			<PageLayout
 				header={
-					<div className="projectSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] md:pt-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:mb-[1rem]">
+					<div className="projectSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:py-[1rem]">
 						<h2 className="sr-only">Projects</h2>
 						<h3 className="projectSection__subHeader">
 							...pause to view some{" "}
@@ -83,6 +84,11 @@ const ProjectsSection = () => {
 				{/* ============================== PROJECT BOARD */}
 				<ProjectBoard items={projects} visibleCount={visibleCount} />
 			</PageLayout>
+			{/* ===================== GLOWING BOTTOM DIVIDER ===================== */}
+			<div className="hidden md:block pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-orange-500/70 to-transparent shadow-[0_0_12px_rgba(255,165,0,0.7)]">
+				{/* Upward glow (realistic fade) */}
+				<div className="absolute bottom-[4px] left-0 w-full h-[20px] bg-gradient-to-t from-orange-500/50 via-orange-500/20 to-transparent blur-[12px] opacity-80"></div>
+			</div>
 		</section>
 	);
 };

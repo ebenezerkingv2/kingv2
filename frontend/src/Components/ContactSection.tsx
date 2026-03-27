@@ -60,7 +60,7 @@ const ContactSection = () => {
 	};
 
 	return (
-		<section className="contactSection relative md:bg-black text-[#f6f0ec] w-full h-screen px-4 md:flex-grow md:h-auto flex flex-col overflow-hidden">
+		<section className="contactSection relative h-screen w-full md:bg-black text-[#f6f0ec] px-4 md:px-0 md:flex-grow flex flex-col overflow-hidden">
 			{/* ============================== HERO IMAGE */}
 			<img
 				src={nightTrain}
@@ -80,8 +80,8 @@ const ContactSection = () => {
 				}
 			>
 				{/* ========================= CONTACT FORM ======================== */}
-				<div className="flex flex-1 flex-col justify-center w-full md:py-[4rem]">
-					<div className="contactSection__form text-[#dbcfff] w-full max-w-lg bg-black/80 backdrop-blur-sm rounded-[1rem] px-4 py-3 mx-auto">
+				<div className="flex flex-1 flex-col justify-center">
+					<div className="contactSection__form text-[#dbcfff] w-full md:w-[80%] lg:w-[70%] bg-black/80 backdrop-blur-sm rounded-[1rem] px-4 py-3 mx-auto">
 						<form
 							className="w-full flex flex-col gap-4"
 							onSubmit={handleSubmit}
@@ -150,6 +150,12 @@ const ContactSection = () => {
 					</div>
 				</div>
 			</PageLayout>
+
+			{/* ===================== GLOWING BOTTOM DIVIDER ===================== */}
+			<div className="hidden md:block pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[2px] bg-gradient-to-r from-transparent via-orange-500/70 to-transparent shadow-[0_0_12px_rgba(255,165,0,0.7)]">
+				{/* Upward glow (realistic fade) */}
+				<div className="absolute bottom-[4px] left-0 w-full h-[20px] bg-gradient-to-t from-orange-500/50 via-orange-500/20 to-transparent blur-[12px] opacity-80"></div>
+			</div>
 		</section>
 	);
 };

@@ -32,7 +32,7 @@ const CardSlider = <T,>({
 	return (
 		<div className="flex flex-col items-center gap-4 z-20 w-full md:my-[4rem]">
 			{/* ================= SLIDER "TV SCREEN" */}
-			<div className="relative w-full md:w-[100%] lg:w-[60%] p-4 overflow-hidden h-[55vh] md:h-[42vh] lg:h-[60vh] flex items-center justify-center">
+			<div className="relative w-full p-4 overflow-hidden h-[55vh] md:h-[42vh] lg:h-[60vh] flex items-center justify-center">
 				{/* ==================== GRID CARDS */}
 				<AnimatePresence mode="wait">
 					<motion.div
@@ -66,7 +66,7 @@ const CardSlider = <T,>({
 					onClick={handleNext}
 					className="cardSlider__button bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 px-6 rounded-[0.5rem] transition-colors duration-300 cursor-pointer"
 				>
-					More...
+					More
 				</button>
 			)}
 		</div>

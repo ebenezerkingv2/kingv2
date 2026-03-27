@@ -37,17 +37,31 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 
 	const visibleItems = items.slice(startIndex, startIndex + visibleCount);
 
-	// =====================================
-
 	return (
-		<div className="projectBoard__parent flex flex-col items-center gap-4 w-full z-20 md:my-[4rem]">
-			{/* ================= SLIDER "TV SCREEN" */}
-			<div className=" projectBoard__slider relative w-full md:w-[90%] lg:w-[60%] p-4 overflow-hidden flex flex-col items-center justify-start border border-orange-500 rounded-[1rem] flex-2  bg-gray-900 flex-shrink-0 ">
-				<div className="projectBoard__sliderSecondBorder border border-orange-500 rounded-[1rem] w-full h-full">
+		<div className="projectBoard__parent flex flex-col items-center gap-4 md:px-4 w-full z-20">
+			{/* ================= TV FRAME (OUTER) */}
+			<div className="projectBoard__slider relative w-full px-[1rem] pt-[1rem] pb-[3rem] overflow-hidden flex flex-col items-center justify-start border border-[#dbcfff] rounded-[1rem] flex-shrink-0">
+				{/* ================= TV SCREEN (CUSTOM BORDERS) */}
+				<div className="projectBoard__sliderSecondBorder relative w-full h-full rounded-[1rem]">
+					{/* ===== CUSTOM BORDERS ===== */}
+
+					{/* ============================= TOP */}
+					<div className="absolute top-[-1rem] left-[-2rem] -translate-x-[1rem] w-[120%] md:w-[110%] h-[1rem] bg-black/80 backdrop-blur-sm md:bg-orange-500 rounded-full z-0"></div>
+
+					{/* ======================== BOTTOM */}
+					<div className="absolute bottom-[-3rem] left-[-2rem] -translate-x-[1rem] w-[120%] md:w-[110%] h-[3rem] bg-black/80 backdrop-blur-sm md:bg-orange-500 rounded-full z-0"></div>
+
+					{/* ============================= LEFT */}
+					<div className="absolute left-[-1rem] top-1/2 -translate-y-1/2 h-[110%] w-[1rem] bg-black/80 backdrop-blur-sm md:bg-orange-500 rounded-full z-0"></div>
+
+					{/* ============================= RIGHT */}
+					<div className="absolute right-[-1rem] top-1/2 -translate-y-1/2 h-[110%] w-[1rem] bg-black/80 backdrop-blur-sm md:bg-orange-500 rounded-full z-0"></div>
+
+					{/* ================= TV CONTENT */}
 					<AnimatePresence mode="wait">
 						<motion.div
 							key={startIndex}
-							className="w-full h-full grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-1 gap-4 md:gap-6 items-stretch"
+							className="w-full h-full grid grid-cols-1 gap-4 md:gap-6 items-stretch"
 							initial={{ opacity: 0, filter: "blur(6px)" }}
 							animate={{ opacity: 1, filter: "blur(0px)" }}
 							exit={{ opacity: 0, filter: "blur(6px)" }}
@@ -57,15 +71,13 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 								<motion.div
 									key={index}
 									className="w-full flex flex-col"
-									// whileHover={{ scale: 1.05 }}
 									transition={{ type: "spring", stiffness: 300 }}
 								>
-									{/* ================= TV SHOW" */}
-									<div className="projectCard min-h-[55vh] sm:min-h-[50vh] md:min-h-[35vh] flex flex-col bg-black/80 backdrop-blur-sm rounded-[1rem] border border-gray-500 overflow-hidden h-full">
-										{/* ================= TV IMAGE SIZES */}
-										<div className="w-full h-full flex gap-3 flex-1">
-											{/* ================== MOBILE */}
-											<div className="flex-1 h-full p-4">
+									{/* ================= PROJECT CARD */}
+									<div className="projectCard flex flex-col overflow-hidden h-full border border-[#dbcfff]">
+										{/* ================= TV IMAGES */}
+										<div className="w-full flex justify-between flex-1 px-4 py-2">
+											<div className="h-full md:border border-orange-500 rounded-md p-[0.1rem] h-[8rem] md:h-[13rem] lg:h-[14.5rem] md:shadow-[0_0_20px_rgba(255,165,0,0.7)]">
 												<img
 													src={project.images.mobile}
 													alt={project.title}
@@ -73,9 +85,8 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 												/>
 											</div>
 
-											{/* =================== TABLET */}
 											{project.images.tablet && (
-												<div className="flex-1 h-full p-4">
+												<div className="h-full md:border border-orange-500 rounded-md p-[0.1rem] h-[8rem] md:h-[13rem] lg:h-[14.5rem] md:shadow-[0_0_20px_rgba(255,165,0,0.7)]">
 													<img
 														src={project.images.tablet}
 														alt={project.title}
@@ -84,9 +95,8 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 												</div>
 											)}
 
-											{/* =================== DESKTOP */}
 											{project.images.desktop && (
-												<div className="hidden md:flex flex-2 h-full p-4">
+												<div className="hidden md:flex h-full border border-orange-500 rounded-md p-[0.1rem] md:h-[13rem] lg:h-[14.5rem] md:shadow-[0_0_20px_rgba(255,165,0,0.7)]">
 													<img
 														src={project.images.desktop}
 														alt={project.title}
@@ -96,38 +106,42 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 											)}
 										</div>
 
-										{/* ================= TV DETAILS" */}
-										<div className="px-4 py-2 flex flex-col justify-between flex-2">
-											{/* ============================ PROJECT TITLE */}
-											<div className="text-[1.25rem] font-bold text-orange-500 mb-2 text-start">
-												<h4>{project.title}</h4>
+										{/* =========================== DETAILS */}
+										<div className="px-4 py-2 flex flex-col gap-[0.5rem] h-[18rem] md:h-[16rem] lg:h-[16rem]">
+											<div className="text-[1.25rem] font-bold text-orange-500 text-start bg-black/80 backdrop-blur-sm rounded-[0.5rem] md:shadow-[0_0_20px_rgba(255,165,0,0.7)]">
+												{/* =========== TITLE */}
+												<h4 className="border-l border-r border-orange-500 px-2 py-[0.2rem] bg-black/80 backdrop-blur-sm rounded-[0.5rem]">
+													{project.title}
+												</h4>
 											</div>
 
-											{/* ============================ PROJECT DESCRIPTION */}
-											<div className="text-[1.1rem] mb-2">
-												<p>{project.description}</p>
+											{/* =========== DESCRIPTION */}
+											<div className="text-[1.1rem] bg-black/80 backdrop-blur-sm rounded-[0.5rem] line-clamp-3 md:line-clamp-2 h-[5.6rem] md:h-[4rem] lg:h-[4rem] md:shadow-[0_0_20px_rgba(255,165,0,0.7)]">
+												<p className="border-l border-r border-orange-500 px-2 py-[0.2rem] bg-black/80 backdrop-blur-sm rounded-[0.5rem]">
+													{project.description}
+												</p>
 											</div>
 
-											{/* ============================ PROJECT TECHNOLOGIES */}
-											<div className="flex flex-wrap gap-[0.7rem] mb-2">
+											{/* =========== TECHNOLOGIES */}
+											<div className="grid grid-rows-2 grid-flow-col gap-[0.5rem]">
 												{project.tech.map((tech, idx) => (
 													<span
 														key={idx}
-														className="text-[0.9rem] border-l border-r border-orange-500 px-2 py-[0.2rem] bg-orange-500/20"
+														className="text-[0.9rem] border-l border-r border-orange-500 px-2 py-[0.2rem] bg-black/80 backdrop-blur-sm rounded-[0.5rem] md:shadow-[0_0_20px_rgba(255,165,0,0.7)]"
 													>
 														{tech}
 													</span>
 												))}
 											</div>
 
-											{/* ============================ PROJECT BUTTONS LIVE & CODE */}
-											<div className="projectBoard__buttonsLiveCode flex justify-center md:justify-start gap-4 mt-auto">
+											{/* =========== LINKS */}
+											<div className="flex justify-center md:justify-start gap-4">
 												{project.live && (
 													<a
 														href={project.live}
 														target="_blank"
 														rel="noopener noreferrer"
-														className="projectBoard__buttonLive w-[5rem] flex justify-center bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 rounded-[0.5rem] transition-colors duration-300 cursor-pointer border border-[#dbcfff]"
+														className="w-[5rem] flex justify-center bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 rounded-[0.5rem] transition-colors duration-300 border border-[#dbcfff]"
 													>
 														Live
 													</a>
@@ -137,7 +151,7 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 														href={project.github}
 														target="_blank"
 														rel="noopener noreferrer"
-														className="projectBoard__buttonCode w-[5rem] flex justify-center bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 rounded-[0.5rem] transition-colors duration-300 cursor-pointer border border-[#dbcfff]"
+														className="w-[5rem] flex justify-center bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 rounded-[0.5rem] transition-colors duration-300 border border-[#dbcfff]"
 													>
 														Code
 													</a>
@@ -150,27 +164,29 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 						</motion.div>
 					</AnimatePresence>
 				</div>
+				{/* ================= FAKE TV BUTTONS */}
+				<div className="absolute bottom-[1rem] left-0 w-full px-4 flex justify-between items-center gap-8 mt-4 z-20">
+					<div className="w-3 h-3 bg-orange-500 md:bg-[#dbcfff] rounded-full"></div>
 
-				{/* =================== FAKE TV BUTTONS */}
-				<div className="projectBoard__fakeButtons w-full flex justify-between items-center gap-8 mt-4">
-					<div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-					<div className="projectBoard__centerButtons flex gap-2">
-						<div className="w-1 h-1 bg-orange-500 rounded-full"></div>
-						<div className="w-1 h-1 bg-[#dbcfff] rounded-full"></div>
+					<div className="flex gap-2">
+						<div className="w-1 h-1 bg-orange-500 md:bg-[#dbcfff] rounded-full"></div>
+						<div className="w-1 h-1 bg-[#dbcfff] md:bg-[#450693] rounded-full"></div>
+						<div className="w-1 h-1 bg-orange-500 md:bg-[#dbcfff] rounded-full"></div>
 					</div>
-					<div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+
+					<div className="w-3 h-3 bg-orange-500 md:bg-[#dbcfff] rounded-full"></div>
 				</div>
 			</div>
 
-			{/* ==========================  CORD TO BUTTON */}
+			{/* ================= CORD */}
 			<div className="border border-orange-500 px-[1.5rem]"></div>
 			<div className="border border-orange-500 px-[1.5rem]"></div>
 
-			{/* ==========================  SHOW MORE BUTTON */}
+			{/* ================= BUTTON */}
 			{items.length > visibleCount && (
 				<button
 					onClick={handleNext}
-					className="cardSlider__button bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 px-6 rounded-[0.5rem] transition-colors duration-300 cursor-pointer border border-[#dbcfff]"
+					className="bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 px-6 rounded-[0.5rem] transition-colors duration-300 border border-[#dbcfff] cursor-pointer"
 				>
 					Switch
 				</button>
