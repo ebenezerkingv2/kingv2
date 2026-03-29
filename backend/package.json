@@ -1,11 +1,13 @@
 {
 	"name": "portfolio-api",
+	"private": true,
 	"version": "1.0.0",
+	"description": "kingv2's Portfolio Contact API - Handles contact form submissions and email notifications",
 	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"dev": "nodemon src/server.js",
 		"start": "node src/server.js",
+		"dev": "nodemon src/server.js",
 		"build": "echo \"Build step not required\""
 	},
 	"dependencies": {
