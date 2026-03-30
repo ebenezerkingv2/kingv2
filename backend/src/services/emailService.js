@@ -30,5 +30,10 @@ export const sendEmail = async ({ name, email, message }) => {
     `,
 	};
 
+	console.log("RENDER ENV:", {
+		user: env.gmail.user,
+		pass: env.gmail.pass ? "EXISTS" : "MISSING",
+	});
+
 	await transporter.sendMail(mailOptions);
 };
