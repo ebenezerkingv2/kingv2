@@ -16,6 +16,7 @@ const ContactSection = () => {
 
 	const [statusMessage, setStatusMessage] = useState("");
 	const [statusType, setStatusType] = useState("");
+	const [isSending, setIsSending] = useState(false);
 
 	type InputEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
 
@@ -28,15 +29,14 @@ const ContactSection = () => {
 		e.preventDefault();
 		setStatusMessage("");
 		setStatusType("");
+		setIsSending(true);
 
 		try {
 			const response = await fetch(
-				"https://portfolio-backend-rd7b.onrender.com/api/contact",
+				"https://portfolio-kingv2.onrender.com/api/contact",
 				{
 					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
+					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(formData),
 				},
 			);
@@ -56,6 +56,8 @@ const ContactSection = () => {
 			console.error("Error:", error);
 			setStatusMessage("Something went wrong. Please try again.");
 			setStatusType("error");
+		} finally {
+			setIsSending(false);
 		}
 	};
 
@@ -131,9 +133,10 @@ const ContactSection = () => {
 							{/* =========================== SEND MESSAGE BUTTON */}
 							<button
 								type="submit"
-								className="contactForm__submit bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 px-4 rounded-[0.5rem] transition-colors duration-300 cursor-pointer"
+								disabled={isSending}
+								className="contactForm__submit bg-orange-500 text-[#450693] font-bold hover:bg-[#dbcfff] hover:text-orange-500 py-2 px-4 rounded-[0.5rem] transition-colors duration-300 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
 							>
-								Send Message
+								{isSending ? "Sending..." : "Send Message"}
 							</button>
 
 							{/* =========================== MESSAGE STATUS */}
