@@ -11,10 +11,10 @@
 		"build": "echo \"Build step not required\""
 	},
 	"dependencies": {
+		"@sendgrid/mail": "^8.1.6",
 		"dotenv": "^17.2.3",
 		"express": "^5.1.0",
-		"mongoose": "^9.0.0",
-		"resend": "^6.9.4"
+		"mongoose": "^9.0.0"
 	},
 	"devDependencies": {
 		"nodemon": "^3.1.11"
