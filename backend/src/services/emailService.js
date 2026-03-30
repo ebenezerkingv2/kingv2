@@ -17,7 +17,7 @@ const transporter = nodemailer.createTransport({
 // ========================= SEND EMAIL =========================
 export const sendEmail = async ({ name, email, message }) => {
 	const mailOptions = {
-		from: `"kingv2's Contact Form" <${process.env.gmail.user}>`,
+		from: `"kingv2's Contact Form" <${env.gmail.user}>`,
 		to: env.gmail.user,
 		replyTo: email,
 		subject: `New Contact Message from ${name}`,
