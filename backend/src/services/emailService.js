@@ -14,9 +14,9 @@ export const sendEmail = async ({ name, email, message }) => {
 			from: env.sendGridSender,
 			subject: `New Contact Message from ${name}`,
 			html: `
-      	<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6f8; padding:20px; font-family: Arial, sans-serif;">
-        <tr>
-          <td align="center">
+      		<table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f4f6f8; padding:20px; font-family: Arial, sans-serif;">
+        	<tr>
+         	 <td align="center">
             <table width="100%" max-width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
               
               <!---------------------------------------------- GRADIENT HEADER -->
@@ -71,10 +71,10 @@ export const sendEmail = async ({ name, email, message }) => {
               </tr>
 
             </table>
-          </td>
-        </tr>
-      	</table>
-      	`,
+         	 </td>
+       		 </tr>
+      		</table>
+      		`,
 		});
 
 		console.log("✅ Styled email sent via SendGrid");
