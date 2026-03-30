@@ -37,7 +37,7 @@ export const sendEmail = async ({ name, email, message }) => {
     </div>
   `,
 		});
-		console.log("✅ Email sent via Resend");
+		console.log("✅ Email sent via Resend:", response);
 	} catch (error) {
 		console.error("Email error (Resend):", error);
 		throw error;
