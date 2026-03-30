@@ -19,41 +19,53 @@ export const sendEmail = async ({ name, email, message }) => {
           <td align="center">
             <table width="100%" max-width="600" cellpadding="0" cellspacing="0" border="0" style="background-color:#ffffff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1);">
               
-              <!-- Gradient Header -->
+              <!---------------------------------------------- GRADIENT HEADER -->
               <tr>
-                <td align="center" style="background: linear-gradient(90deg, #4a00e0, #8e2de2); border-radius:12px 12px 0 0; padding:20px 0;">
-                  <h2 style="color:#ffffff; margin:0; font-size:24px;">New Contact Form Submission</h2>
+                <td align="center" style="background: linear-gradient(90deg, #f97316, #dbcfff); border-radius:12px 12px 0 0; padding:20px 0;">
+				     <!---------------------------------------------- HEADER -->
+                  <h2 style="color:#450693; margin:0; font-size:24px;">New Contact Form Submission</h2>
                 </td>
               </tr>
 
-              <!-- Body -->
-              <tr>
-                <td style="padding:20px 0;">
-                  <p style="margin:5px 0; font-size:16px;"><strong>Name:</strong> ${name}</p>
-                  <p style="margin:5px 0; font-size:16px;"><strong>Email:</strong> ${email}</p>
-                  <p style="margin:5px 0; font-size:16px;"><strong>Message:</strong></p>
-                  <p style="margin:5px 0; font-size:16px; line-height:1.5; border-left:4px solid #8e2de2; padding-left:12px;">
-                    ${message}
-                  </p>
-                </td>
-              </tr>
+              <!--------------------------------------------- BODY -->
+			<tr>
+  			<td style="padding:20px 0; color:#f97316;">
+    
+    			<p style="margin:0; padding-bottom:10px; font-size:16px;">
+      			<strong>Name:</strong> ${name}
+   			 </p>
 
-              <!-- CTA Button -->
+    			<p style="margin:0; padding-bottom:10px; font-size:16px;">
+      			<strong>Email:</strong> ${email}
+   			 </p>
+
+   			 <p style="margin:0; padding-bottom:6px; font-size:16px;">
+     			 <strong>Message:</strong>
+    			</p>
+
+    			<p style="margin:0; font-size:16px; line-height:1.5; border-left:4px solid #8e2de2; padding-left:12px;">
+    			  ${message}
+   			 </p>
+
+  			</td>
+			</tr>
+
+              <!-------------------------------------------- CTA BUTTON -->
               <tr>
                 <td align="center" style="padding:20px 0;">
                   <a href="mailto:${email}" 
-                     style="background-color:#4a00e0; color:#ffffff; text-decoration:none; padding:12px 25px; border-radius:6px; display:inline-block; font-weight:bold;">
+              		style="background-color:#f97316; color:#450693; text-decoration:none; padding:12px 25px; 		border-radius:6px; display:inline-block; font-weight:bold;"
                      Reply to Sender
                   </a>
                 </td>
               </tr>
 
-              <!-- Footer -->
+              <!-------------------------------------------- FOOTER -->
               <tr>
                 <td style="padding-top:20px; text-align:center;">
                   <hr style="border:0; border-top:1px solid #ddd; margin-bottom:10px;">
-                  <p style="font-size:12px; color:#888; margin:0;">
-                    This message was sent from your portfolio contact form.
+                  <p style="font-size:12px; color:#f97316; margin:0;">
+                    This message was sent from your portfolio kingv2's contact form.
                   </p>
                 </td>
               </tr>
