@@ -18,10 +18,10 @@ export const sendContact = async (req, res) => {
 
 	// ================= EMAIL VALIDATION =================
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	if (!email.includes("@") || !emailRegex.test(email)) {
+	if (!emailRegex.test(email)) {
 		return res.status(400).json({
 			success: false,
-			error: "Invalid email",
+			error: "Invalid email address",
 		});
 	}
 
@@ -36,17 +36,21 @@ export const sendContact = async (req, res) => {
 	// ================= SEND EMAIL =================
 	try {
 		await sendEmail({ name, email, message });
+		console.log(`✅ Contact message sent: ${name} <${email}>`);
 
 		return res.status(200).json({
 			success: true,
 			message: "Message sent successfully",
 		});
 	} catch (error) {
-		console.error("Email error:", error);
+		console.error("❌ Failed to send contact message:", {
+			errorMessage: error.message,
+			stack: error.stack,
+		});
 
 		return res.status(500).json({
 			success: false,
-			error: "Failed to send message",
+			error: "Failed to send message. Please try again later.",
 		});
 	}
 };

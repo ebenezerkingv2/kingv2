@@ -1,39 +1,45 @@
 // =====================================
 // src/services/emailService.js
-// ===================================== EMAIL SERVICE - HANDLES SENDING EMAILS (e.g. CONTACT FORM)
+// ===================================== EMAIL SERVICE USING RESEND
 
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import env from "../config/env.js";
 
-// ========================= TRANSPORTER =========================
-const transporter = nodemailer.createTransport({
-	service: "gmail",
-	auth: {
-		user: env.gmail.user,
-		pass: env.gmail.pass,
-	},
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // ========================= SEND EMAIL =========================
 export const sendEmail = async ({ name, email, message }) => {
-	const mailOptions = {
-		from: `"kingv2's Contact Form" <${env.gmail.user}>`,
-		to: env.gmail.user,
-		replyTo: email,
-		subject: `New Contact Message from ${name}`,
-		html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
+	try {
+		await resend.emails.send({
+			from: `Portfolio Contact <${env.resendSender}>`,
+			to: env.resendRecipient,
+			subject: `New Contact Message from ${name}`,
+			html: `
+    <div style="
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    ">
+      <h2 style="color: #4a90e2; text-align: center;">New Contact Form Submission</h2>
+      <p><strong>Name:</strong> <span style="color: #333;">${name}</span></p>
+      <p><strong>Email:</strong> <span style="color: #333;">${email}</span></p>
       <p><strong>Message:</strong></p>
-      <p>${message}</p>
-    `,
-	};
-
-	console.log("RENDER ENV:", {
-		user: env.gmail.user,
-		pass: env.gmail.pass ? "EXISTS" : "MISSING",
-	});
-
-	await transporter.sendMail(mailOptions);
+      <p style="background-color: #fff; padding: 10px; border-left: 4px solid #4a90e2; border-radius: 4px;">
+        ${message}
+      </p>
+      <footer style="margin-top: 20px; font-size: 12px; color: #666; text-align: center;">
+        This message was sent from your Portfolio Contact Form
+      </footer>
+    </div>
+  `,
+		});
+		console.log("✅ Email sent via Resend");
+	} catch (error) {
+		console.error("Email error (Resend):", error);
+		throw error;
+	}
 };
