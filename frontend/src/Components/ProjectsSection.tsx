@@ -61,7 +61,7 @@ const ProjectsSection = () => {
 	// =====================================
 
 	return (
-		<section className="projectSection relative h-screen w-full flex flex-col px-4 md:px-0 md:bg-black text-[#dbcfff] overflow-hidden">
+		<section className="projectSection relative min-h-screen w-full flex flex-col md:bg-black text-[#dbcfff] overflow-hidden">
 			{/* ============================== HERO IMAGE */}
 			<img
 				src={darkNight}
@@ -72,7 +72,7 @@ const ProjectsSection = () => {
 			{/* ============================== PAGE LAYOUT */}
 			<PageLayout
 				header={
-					<div className="projectSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:py-[1rem]">
+					<div className="projectSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start">
 						<h2 className="sr-only">Projects</h2>
 						<h3 className="projectSection__subHeader">
 							...pause to view some{" "}

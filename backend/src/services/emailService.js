@@ -31,19 +31,19 @@ export const sendEmail = async ({ name, email, message }) => {
 			<tr>
   			<td style="padding:20px 0;">
     
-    			<p style="color:#450693;margin:0; padding-bottom:10px; font-size:20px;">
+    			<p style="margin:0; padding-bottom:10px; font-size:18px;">
       			<strong>Name:</strong> ${name}
    			 </p>
 
-    			<p style="color:#450693;margin:0; padding-bottom:10px; font-size:20px;">
+    			<p style="margin:0; padding-bottom:10px; font-size:18px;">
       			<strong>Email:</strong> ${email}
    			 </p>
 
-   			 <p style="color:#450693;margin:0; padding-bottom:6px; font-size:20px;">
+   			 <p style="margin:0; padding-bottom:6px; font-size:18px;">
      			 <strong>Message:</strong>
     			</p>
 
-    			<p style="color:#450693;margin:0; font-size:20px; line-height:1.5; border-left:4px solid #8e2de2; padding-left:12px;">
+    			<p style="margin:0; font-size:18px; line-height:1.5; border-left:4px solid #8e2de2; padding-left:12px;">
     			  ${message}
    			 </p>
 
@@ -51,14 +51,23 @@ export const sendEmail = async ({ name, email, message }) => {
 			</tr>
 
               <!-------------------------------------------- CTA BUTTON -->
-              <tr>
-                <td align="center" style="padding:20px 0;">
-                  <a href="mailto:${email}" 
-              		style="background-color:#450693; color:#dbcfff; text-decoration:none; padding:12px 25px; 		border-radius:6px; display:inline-block; font-weight:bold;"
-                     Reply to Sender
-                  </a>
-                </td>
-              </tr>
+			<tr>
+  			<td align="center" style="padding:20px 0;">
+  			  <a href="mailto:${email}"
+    			   style="
+     			    background-color:#f97316;
+       			  color:#450693;
+     			    text-decoration:none;
+     			    padding:12px 25px;
+      			   border-radius:6px;
+     			    display:inline-block;
+     			    font-weight:bold;
+     			    font-size:16px;
+     			  ">
+     			  Reply to Sender
+   			 </a>
+ 			 </td>
+			</tr>
 
               <!-------------------------------------------- FOOTER -->
               <tr>

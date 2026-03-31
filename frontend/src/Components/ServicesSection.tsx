@@ -68,7 +68,7 @@ const ServicesSection = () => {
 	// =================================
 
 	return (
-		<section className="servicesSection relative h-screen w-full flex flex-col px-4 md:px-0 md:bg-black text-[#dbcfff] overflow-hidden">
+		<section className="servicesSection relative min-h-screen w-full flex flex-col md:bg-black text-[#dbcfff] overflow-hidden">
 			{/* ============================== HERO IMAGE */}
 			<img
 				src={neonUmbrellaRainyNight}
@@ -79,7 +79,7 @@ const ServicesSection = () => {
 			{/* ============================== PAGE LAYOUT */}
 			<PageLayout
 				header={
-					<div className="servicesSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] md:pt-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:mb-[1rem]">
+					<div className="servicesSectionHeader__parent text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start">
 						<h2 className="sr-only servicesSection__header">Services</h2>
 						<h3 className="servicesSection__subHeader">
 							...how can I be of{" "}
@@ -93,7 +93,7 @@ const ServicesSection = () => {
 					items={services}
 					visibleCount={visibleCount}
 					renderItem={(service) => (
-						<div className="serviceCard h-full flex flex-col justify-start text-center bg-black/80 backdrop-blur-sm px-4 py-2 rounded-[0.5rem] md:rounded-[1rem] border border-orange-500">
+						<div className="serviceCard h-full flex flex-col justify-start text-center bg-black/80 backdrop-blur-sm px-4 py-[1rem] rounded-[0.5rem] md:rounded-[1rem] border border-orange-500">
 							<h4 className="text-[1.25rem] font-bold text-orange-500 mb-2">
 								{service.title}
 							</h4>

@@ -62,7 +62,7 @@ const ContactSection = () => {
 	};
 
 	return (
-		<section className="contactSection relative h-screen w-full md:bg-black text-[#f6f0ec] px-4 md:px-0 md:flex-grow flex flex-col overflow-hidden">
+		<section className="contactSection relative min-h-screen w-full md:bg-black text-[#f6f0ec] px-4 md:px-0 md:flex-grow flex flex-col overflow-hidden">
 			{/* ============================== HERO IMAGE */}
 			<img
 				src={nightTrain}
@@ -73,7 +73,7 @@ const ContactSection = () => {
 			{/* ============================== PAGE LAYOUT */}
 			<PageLayout
 				header={
-					<div className="aboutSection__headerSubHeader text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] md:pt-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start md:mb-[1rem]">
+					<div className="aboutSection__headerSubHeader text-[1.1rem] text-[#dbcfff] text-center md:text-[1rem] w-fit mx-auto bg-black/80 backdrop-blur-sm md:bg-transparent md:backdrop-blur-0 p-[0.1rem] rounded md:text-start">
 						<h2 className="sr-only">About Me</h2>
 						<h3 className="contactSection__subHeader">
 							...here is my <span className="text-orange-500">contact</span>
@@ -82,8 +82,8 @@ const ContactSection = () => {
 				}
 			>
 				{/* ========================= CONTACT FORM ======================== */}
-				<div className="flex flex-1 flex-col justify-center">
-					<div className="contactSection__form text-[#dbcfff] w-full md:w-[80%] lg:w-[70%] bg-black/80 backdrop-blur-sm rounded-[1rem] px-4 py-3 mx-auto">
+				<div className="flex flex-1 flex-col justify-center items-center pb-[3rem]">
+					<div className="contactSection__form text-[#dbcfff] w-full md:w-[80%] lg:w-[70%] bg-black/80 backdrop-blur-sm rounded-[1rem] px-4 py-[1rem] mx-auto">
 						<form
 							className="w-full flex flex-col gap-4"
 							onSubmit={handleSubmit}
@@ -142,7 +142,7 @@ const ContactSection = () => {
 							{/* =========================== MESSAGE STATUS */}
 							{statusMessage && (
 								<p
-									className={`mt-4 text-center text-[1rem] font-semibold ${
+									className={`pt-[1rem] text-center text-[1rem] font-semibold ${
 										statusType === "success" ? "text-green-500" : "text-red-400"
 									}`}
 								>

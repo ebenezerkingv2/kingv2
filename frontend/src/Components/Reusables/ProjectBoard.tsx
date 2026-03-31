@@ -38,7 +38,7 @@ const ProjectBoard = ({ items, visibleCount }: ProjectBoardProps) => {
 	const visibleItems = items.slice(startIndex, startIndex + visibleCount);
 
 	return (
-		<div className="projectBoard__parent flex flex-col items-center gap-4 md:px-4 w-full z-20">
+		<div className="projectBoard__parent flex flex-col items-center justify-center gap-4 w-full z-20 pb-[3rem]">
 			{/* ================= TV FRAME (OUTER) */}
 			<div className="projectBoard__slider relative w-full px-[1rem] pt-[1rem] pb-[3rem] overflow-hidden flex flex-col items-center justify-start border border-[#dbcfff] rounded-[1rem] flex-shrink-0">
 				{/* ================= TV SCREEN (CUSTOM BORDERS) */}
