@@ -21,29 +21,29 @@ export const sendEmail = async ({ name, email, message }) => {
               
               <!---------------------------------------------- GRADIENT HEADER -->
               <tr>
-                <td align="center" style="background: linear-gradient(90deg, #f97316, #dbcfff); border-radius:12px 12px 0 0; padding:20px 0;">
+                <td align="center" style="background: linear-gradient(90deg, #f97316, #450693); border-radius:12px 12px 0 0; padding:20px 0;">
 				     <!---------------------------------------------- HEADER -->
-                  <h2 style="color:#450693; margin:0; font-size:24px;">New Contact Form Submission</h2>
+                  <h2 style="color:#dbcfff; margin:0; font-size:24px;">New Contact Form Submission</h2>
                 </td>
               </tr>
 
               <!--------------------------------------------- BODY -->
 			<tr>
-  			<td style="padding:20px 0; color:#f97316;">
+  			<td style="padding:20px 0;">
     
-    			<p style="margin:0; padding-bottom:10px; font-size:16px;">
+    			<p style="color:#450693;margin:0; padding-bottom:10px; font-size:20px;">
       			<strong>Name:</strong> ${name}
    			 </p>
 
-    			<p style="margin:0; padding-bottom:10px; font-size:16px;">
+    			<p style="color:#450693;margin:0; padding-bottom:10px; font-size:20px;">
       			<strong>Email:</strong> ${email}
    			 </p>
 
-   			 <p style="margin:0; padding-bottom:6px; font-size:16px;">
+   			 <p style="color:#450693;margin:0; padding-bottom:6px; font-size:20px;">
      			 <strong>Message:</strong>
     			</p>
 
-    			<p style="margin:0; font-size:16px; line-height:1.5; border-left:4px solid #8e2de2; padding-left:12px;">
+    			<p style="color:#450693;margin:0; font-size:20px; line-height:1.5; border-left:4px solid #8e2de2; padding-left:12px;">
     			  ${message}
    			 </p>
 
@@ -54,7 +54,7 @@ export const sendEmail = async ({ name, email, message }) => {
               <tr>
                 <td align="center" style="padding:20px 0;">
                   <a href="mailto:${email}" 
-              		style="background-color:#f97316; color:#450693; text-decoration:none; padding:12px 25px; 		border-radius:6px; display:inline-block; font-weight:bold;"
+              		style="background-color:#450693; color:#dbcfff; text-decoration:none; padding:12px 25px; 		border-radius:6px; display:inline-block; font-weight:bold;"
                      Reply to Sender
                   </a>
                 </td>
@@ -64,7 +64,7 @@ export const sendEmail = async ({ name, email, message }) => {
               <tr>
                 <td style="padding-top:20px; text-align:center;">
                   <hr style="border:0; border-top:1px solid #ddd; margin-bottom:10px;">
-                  <p style="font-size:12px; color:#f97316; margin:0;">
+                  <p style="font-size:12px; font-weight:bold; margin:0;">
                     This message was sent from your portfolio kingv2's contact form.
                   </p>
                 </td>
