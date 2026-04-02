@@ -53,7 +53,7 @@ function Footer() {
 						<ul>
 							<li className="flex gap-2">
 								<a
-									href="https://x.com/dark_txch?s=21&t=o3w1r65yzU2hxbP-LDD1ug"
+									href="https://x.com/dev_kingv2"
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label="Twitter"
@@ -64,7 +64,7 @@ function Footer() {
 								</a>
 
 								<a
-									href="https://www.linkedin.com/in/ebenezer-tiewei-093b21320/"
+									href="https://www.linkedin.com/in/ebenezer-kingv2"
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label="LinkedIn"
@@ -75,7 +75,7 @@ function Footer() {
 								</a>
 
 								<a
-									href="https://github.com/ebenezertiewei"
+									href="https://github.com/ebenezerkingv2"
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label="GitHub"
