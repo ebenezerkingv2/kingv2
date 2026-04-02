@@ -45,7 +45,7 @@ function Navbar() {
 						<span className=" text-orange-500 md:text-[#450693] transition-transform duration-300">
 							Ebenezer
 						</span>
-						<span className="text-[#450693] md:text-orange-500">Tiewei</span>
+						<span className="text-[#450693] md:text-orange-500">King</span>
 					</Link>
 				</div>
 
