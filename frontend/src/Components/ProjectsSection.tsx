@@ -21,8 +21,8 @@ const projects = [
 		description:
 			"A full-stack tax calculation app with real-time updates. so you can calculate your taxes in a flash.",
 		tech: ["React", "Tailwind", "TypeScript", "Node.js", "MongoDB"],
-		live: "https://taxlatorv2.vercel.app/",
-		github: "https://github.com/ebenezerkingv2/taxlator_v2",
+		live: "https://taxlator-v2.vercel.app/",
+		github: "https://github.com/ebenezerkingv2/taxlator-v2",
 	},
 	{
 		images: {
@@ -34,8 +34,8 @@ const projects = [
 		description:
 			"A full-stack e-commerce app with authentication, cart, and payment integration.",
 		tech: ["React", "Node.js", "MongoDB", "Tailwind"],
-		live: "https://taxlatorv2.vercel.app/",
-		github: "https://github.com/ebenezerkingv2/taxlator_v2",
+		live: "https://taxlator-v2.vercel.app/",
+		github: "https://github.com/ebenezerkingv2/taxlator-v2",
 	},
 ];
 // =====================================
