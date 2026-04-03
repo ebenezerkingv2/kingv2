@@ -2,7 +2,7 @@
 // src/Components/HomeSection.tsx
 // ===================================== HOME SECTION COMPONENT
 
-import King from "../Assets/profilePic/King.webp";
+import Kingv2 from "../Assets/profilePic/kingv2_.webp";
 import { motion } from "framer-motion";
 import redUmbrellaRainNight from "../Assets/backgroundImage/redUmbrellaRainNight.webp";
 
@@ -63,7 +63,7 @@ const HomeSection = () => {
 							{/* ======================= HERO IMAGE CONTAINER  */}
 							<div className="homePage__mediumLarge--profile-image-wrapper w-[250px] h-[250px] lg:w-[300px] lg:h-[300px] rounded-full overflow-hidden border-4 border-orange-500 z-20 relative">
 								<img
-									src={King}
+									src={Kingv2}
 									alt="King"
 									className="object-cover w-full h-full"
 								/>
